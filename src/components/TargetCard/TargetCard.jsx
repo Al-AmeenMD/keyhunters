@@ -19,22 +19,29 @@ export default function TargetCard({ item, typedIndex, wrongFlash, cardRef }) {
           </div>
         </>
       ) : (
-        <div className="word-tiles">
-          {item.word.split("").map((ch, i) => {
-            let tileClass = "pending";
-            if (i < typedIndex) tileClass = "typed";
-            else if (i === typedIndex) tileClass = "current";
+        <>
+          <div className="word-tiles">
+            {item.word.split("").map((ch, i) => {
+              let tileClass = "pending";
+              if (i < typedIndex) tileClass = "typed";
+              else if (i === typedIndex) tileClass = "current";
 
-            return (
-              <span
-                key={i}
-                className={`word-tile ${tileClass} ${i < typedIndex ? "anim-pop" : ""}`}
-              >
-                {ch}
-              </span>
-            );
-          })}
-        </div>
+              return (
+                <span
+                  key={i}
+                  className={`word-tile ${tileClass} ${i < typedIndex ? "anim-pop" : ""}`}
+                >
+                  {ch}
+                </span>
+              );
+            })}
+          </div>
+          {item.label && (
+            <div className="target-hint" style={{ marginTop: 10 }}>
+              {item.label}
+            </div>
+          )}
+        </>
       )}
     </div>
   );
