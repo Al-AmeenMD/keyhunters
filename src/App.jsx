@@ -6,6 +6,7 @@ import Game from "./pages/Game/Game";
 import Results from "./pages/Results/Results";
 import Leaderboard from "./pages/Leaderboard/Leaderboard";
 import ParentSettings, { ParentalGate } from "./pages/ParentSettings/ParentSettings";
+import Competition from "./pages/Competition/Competition";
 import Button from "./components/Button/Button";
 import { Trophy, Settings } from "lucide-react";
 import { useAudio } from "./hooks/useAudio";
@@ -122,6 +123,7 @@ function MainAppContent() {
         <StageSelect
           onSelectStage={handleSelectStage}
           onBackToWelcome={() => setCurrentPage("welcome")}
+          onStartCompetition={() => setCurrentPage("competition")}
         />
       )}
 
@@ -152,6 +154,10 @@ function MainAppContent() {
 
       {currentPage === "parent-settings" && (
         <ParentSettings onBack={() => setCurrentPage("welcome")} />
+      )}
+
+      {currentPage === "competition" && (
+        <Competition onBack={() => setCurrentPage("stages")} />
       )}
 
       {/* Parental Gate challenge overlay */}

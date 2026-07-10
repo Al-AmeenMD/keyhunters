@@ -1,0 +1,309 @@
+.comp-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.comp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.comp-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.comp-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comp-section-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+/* Profiles pick grid */
+.comp-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.comp-picker-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-glass);
+  border: 2px solid var(--input-border);
+  padding: 16px 12px;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.comp-picker-btn:active {
+  transform: scale(0.95);
+}
+
+.comp-picker-btn.selected {
+  border-color: var(--accent-purple);
+  background: var(--key-left-bg);
+}
+
+.comp-picker-avatar {
+  font-size: 2.2rem;
+}
+
+.comp-picker-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  max-width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comp-picker-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--accent-purple);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Stage selection scroll list */
+.comp-stages-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.comp-stage-item-btn {
+  background: var(--surface-glass);
+  border: 2px solid var(--input-border);
+  border-radius: var(--border-radius-md);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.comp-stage-item-btn.selected {
+  border-color: var(--accent-gold);
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow);
+}
+
+/* Ready Screen transition */
+.comp-ready-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.comp-ready-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+}
+
+.comp-ready-avatar {
+  font-size: 4.5rem;
+  margin-bottom: 16px;
+  animation: float-cloud 4s ease-in-out infinite;
+}
+
+.comp-ready-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.comp-ready-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* Battle Header HUD */
+.comp-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-glass);
+  padding: 10px 20px;
+  border-radius: var(--border-radius-lg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--input-border);
+  margin-bottom: 20px;
+}
+
+.comp-hud-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.comp-hud-avatar {
+  font-size: 1.6rem;
+}
+
+.comp-hud-round {
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Podium layouts */
+.comp-podium-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 14px;
+  height: 260px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.comp-podium-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  transition: height var(--transition-slow) ease-out;
+}
+
+.comp-podium-avatar {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  position: absolute;
+  top: -46px;
+}
+
+.comp-podium-name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 14px;
+  text-align: center;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comp-podium-stat {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.9);
+  margin-top: 4px;
+}
+
+/* Individual Podium Colors */
+.podium-1 {
+  height: 180px;
+  background: linear-gradient(180deg, #FAD961 0%, #F76B1C 100%);
+  box-shadow: 0 4px 15px rgba(247, 107, 28, 0.3);
+}
+
+.podium-2 {
+  height: 130px;
+  background: linear-gradient(180deg, #B5C6E0 0%, #5E72E4 100%);
+  box-shadow: 0 4px 15px rgba(94, 114, 228, 0.25);
+}
+
+.podium-3 {
+  height: 90px;
+  background: linear-gradient(180deg, #E6A77C 0%, #A0522C 100%);
+  box-shadow: 0 4px 15px rgba(160, 82, 44, 0.25);
+}
+
+.comp-winners-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.comp-winner-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: var(--border-radius-md);
+  background: var(--surface-glass);
+  border: 1px solid var(--input-border);
+  font-weight: 700;
+}
+
+.comp-winner-row-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-primary);
+}
+
+.comp-winner-rank {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.comp-winner-row-right {
+  display: flex;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.comp-winner-val {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}

@@ -83,14 +83,14 @@ function gameReducer(state, action) {
   }
 }
 
-export default function Game({ stageIndex, onBackToStages, onStageFinished }) {
+export default function Game({ stageIndex, onBackToStages, onStageFinished, customQueue }) {
   const { bestTimes, theme, recordStageComplete, soundOn, musicOn, showFingerGuides, STAGES } = useGame();
   const stage = STAGES[stageIndex];
   const isTimed = stage.type === "timed";
 
   const [gameState, dispatch] = useReducer(gameReducer, initialGameState);
   const [isPaused, setIsPaused] = useState(false);
-  const [queue, setQueue] = useState(() => buildQueue(stage, false));
+  const [queue, setQueue] = useState(() => customQueue || buildQueue(stage, false));
   const cardRef = useRef(null);
 
   const {
@@ -232,7 +232,7 @@ export default function Game({ stageIndex, onBackToStages, onStageFinished }) {
 
   const handleRestart = () => {
     dispatch({ type: "RESET_GAME_STATE" });
-    setQueue(buildQueue(stage, true));
+    setQueue(customQueue || buildQueue(stage, true));
     setIsPaused(false);
     resetTimer();
     resetCountdown();

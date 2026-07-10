@@ -7,7 +7,7 @@ import { formatTime } from "../../utils/helpers";
 import { Trophy, ShieldAlert, Award, ChevronLeft, Lock } from "lucide-react";
 import "./StageSelect.css";
 
-export default function StageSelect({ onSelectStage, onBackToWelcome }) {
+export default function StageSelect({ onSelectStage, onBackToWelcome, onStartCompetition }) {
   const {
     activeProfile,
     completedStages,
@@ -32,6 +32,9 @@ export default function StageSelect({ onSelectStage, onBackToWelcome }) {
         <div className="stages-nav-btns">
           <Button variant="muted" size="sm" onClick={onBackToWelcome}>
             <ChevronLeft size={16} /> Switch Player
+          </Button>
+          <Button variant="gold" size="sm" onClick={onStartCompetition}>
+            ⚔️ Battle Mode
           </Button>
           <Button variant="success" size="sm" onClick={() => setShowAchievements(true)}>
             <Award size={16} /> Achievements ({achievements.length})
