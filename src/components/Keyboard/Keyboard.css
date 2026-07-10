@@ -4,6 +4,7 @@
   align-items: center;
   gap: 7px;
   padding: 0 8px;
+  width: 100%;
 }
 
 .keyboard-row {
@@ -49,6 +50,12 @@
   box-shadow: 0 3px 0 var(--key-shadow);
 }
 
+/* Shift Key sizing */
+.keyboard-key.is-shift {
+  width: 64px;
+  font-size: 13px;
+}
+
 .keyboard-key.is-target {
   background: var(--accent-gold) !important;
   color: #5A3E00 !important;
@@ -63,6 +70,15 @@
 
 .key-char {
   margin-top: 2px;
+}
+
+.key-shift-char {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0.6;
 }
 
 .key-finger-label {
@@ -129,11 +145,17 @@
 }
 
 /* Responsive: slightly smaller keys on mobile */
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .keyboard-key {
-    width: 30px;
-    height: 38px;
-    font-size: 13px;
+    width: 24px;
+    height: 34px;
+    font-size: 11px;
+    gap: 0;
+  }
+  
+  .keyboard-key.is-shift {
+    width: 44px;
+    font-size: 9px;
   }
 
   .keyboard-row {
@@ -141,9 +163,15 @@
   }
 
   .keyboard-spacebar {
-    width: 160px;
+    width: 150px;
     height: 28px;
     font-size: 11px;
+  }
+  
+  .key-shift-char {
+    font-size: 7px;
+    top: 1px;
+    right: 2px;
   }
   
   .key-finger-label {

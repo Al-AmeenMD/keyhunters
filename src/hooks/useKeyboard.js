@@ -8,10 +8,13 @@ export function useKeyboard(onKeyPress, enabled = true) {
     if (!enabled) return;
     const onKeyDown = (e) => {
       if (e.repeat) return;
-      const key = e.key.toUpperCase();
-      if (/^[A-Z]$/.test(key)) {
+      const key = e.key;
+      // Allow all printable characters of length 1 (letters, numbers, syntax symbols)
+      if (key.length === 1) {
         e.preventDefault();
-        callbackRef.current?.(key);
+        const isLetter = /^[a-zA-Z]$/.test(key);
+        const callbackKey = isLetter ? key.toUpperCase() : key;
+        callbackRef.current?.(callbackKey);
       }
     };
     window.addEventListener("keydown", onKeyDown);

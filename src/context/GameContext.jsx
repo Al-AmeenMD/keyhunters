@@ -254,7 +254,7 @@ export function GameProvider({ children }) {
     const list = [...STATIC_STAGES];
     if (customWords && customWords.length > 0) {
       list.push({
-        id: 6,
+        id: 7,
         name: "My Spelling List",
         type: "words",
         label: "Type Spelling Words",

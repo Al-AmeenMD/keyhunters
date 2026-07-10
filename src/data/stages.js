@@ -1,6 +1,21 @@
 import { ALPHABET_ITEMS } from "./alphabet";
 import { WORDS_SHORT, WORDS_MEDIUM, ALL_WORDS } from "./words";
 
+export const CODE_SYMBOLS = [
+  { word: "{}", emoji: "📦", label: "Curly Brackets (group code)" },
+  { word: "[]", emoji: "📦", label: "Square Brackets (lists/arrays)" },
+  { word: "()", emoji: "📞", label: "Parentheses (actions/functions)" },
+  { word: "<>", emoji: "📐", label: "Angle Brackets (HTML tags)" },
+  { word: ";", emoji: "🛑", label: "Semicolon (computer stop)" },
+  { word: "=", emoji: "⚖️", label: "Equal (makes things same)" },
+  { word: "+", emoji: "➕", label: "Plus (adds variables)" },
+  { word: "?", emoji: "❓", label: "Question (conditional choices)" },
+  { word: "!", emoji: "❗", label: "Exclamation (logical NOT)" },
+  { word: "$", emoji: "💵", label: "Dollar Sign (variables)" },
+  { word: "#", emoji: "🏷️", label: "Hash Sign (code comments)" },
+  { word: "@", emoji: "📧", label: "At Sign (decorators)" },
+];
+
 export const STAGES = [
   {
     id: 1,
@@ -56,6 +71,17 @@ export const STAGES = [
     color: "#FF9F43",
     pool: ALL_WORDS,
     unlockCondition: 4,
+  },
+  {
+    id: 6,
+    name: "Code Cadet",
+    type: "words",
+    label: "Type Coding Symbols",
+    description: "Type brackets, semicolons, and operators",
+    emoji: "💻",
+    color: "#E289F2",
+    pool: CODE_SYMBOLS,
+    unlockCondition: 5,
   },
 ];
 
