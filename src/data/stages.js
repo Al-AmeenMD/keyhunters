@@ -2,18 +2,18 @@ import { ALPHABET_ITEMS } from "./alphabet";
 import { WORDS_SHORT, WORDS_MEDIUM, ALL_WORDS } from "./words";
 
 export const CODE_SYMBOLS = [
-  { word: "()", emoji: "⚙️", label: "Parentheses (used for function actions)" },
-  { word: "{}", emoji: "🎒", label: "Curly Brackets (holds code blocks)" },
-  { word: "[]", emoji: "📊", label: "Square Brackets (holds item lists)" },
-  { word: "<>", emoji: "🌐", label: "Angle Brackets (HTML tags for web pages)" },
-  { word: ";", emoji: "🏁", label: "Semicolon (ends a line of code)" },
-  { word: "=", emoji: "🔗", label: "Equal (links value to variable)" },
-  { word: "+", emoji: "➕", label: "Plus (adds values together)" },
-  { word: "?", emoji: "❓", label: "Question (conditional choices)" },
-  { word: "!", emoji: "🚫", label: "Exclamation (logical NOT)" },
-  { word: "$", emoji: "💲", label: "Dollar (stores variables)" },
-  { word: "#", emoji: "💬", label: "Hash (writes code comments)" },
-  { word: "@", emoji: "👤", label: "At Sign (special code tags)" },
+  { word: "()", emoji: "( )", label: "Parentheses (used for function actions)" },
+  { word: "{}", emoji: "{ }", label: "Curly Brackets (holds code blocks)" },
+  { word: "[]", emoji: "[ ]", label: "Square Brackets (holds item lists)" },
+  { word: "<>", emoji: "< >", label: "Angle Brackets (HTML tags for web pages)" },
+  { word: ";", emoji: ";", label: "Semicolon (ends a line of code)" },
+  { word: "=", emoji: "=", label: "Equal (links value to variable)" },
+  { word: "+", emoji: "+", label: "Plus (adds values together)" },
+  { word: "?", emoji: "?", label: "Question (conditional choices)" },
+  { word: "!", emoji: "!", label: "Exclamation (logical NOT)" },
+  { word: "$", emoji: "$", label: "Dollar (stores variables)" },
+  { word: "#", emoji: "#", label: "Hash (writes code comments)" },
+  { word: "@", emoji: "@", label: "At Sign (special code tags)" },
 ];
 
 export const STAGES = [
