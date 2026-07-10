@@ -65,12 +65,30 @@ export default function Competition({ onBack }) {
     setBattleState("playing");
   };
 
+  const calculateScore = (time, accuracy, streak, stageType, wordsTyped) => {
+    const base = wordsTyped * 50;
+    const accBonus = accuracy * 10;
+    const streakBonus = streak * 20;
+    const speedBonus = stageType !== "timed" ? Math.max(0, 180 - time) * 10 : 0;
+    return Math.round(base + accBonus + streakBonus + speedBonus);
+  };
+
   const handlePlayerFinished = (results) => {
+    const score = calculateScore(
+      results.time,
+      results.accuracy,
+      results.streak,
+      stage.type,
+      results.wordsTyped
+    );
+
     const playerResult = {
       name: activePlayer.name,
       avatar: activePlayer.avatar,
       time: results.time,
       accuracy: results.accuracy,
+      streak: results.streak,
+      score: score,
     };
     
     setBattleResults((prev) => [...prev, playerResult]);
@@ -84,10 +102,10 @@ export default function Competition({ onBack }) {
     }
   };
 
-  // Sort results for the podium
+  // Sort results for the podium (highest score first)
   const sortedResults = [...battleResults].sort((a, b) => {
-    if (a.time !== b.time) return a.time - b.time;
-    return b.accuracy - a.accuracy;
+    if (b.score !== a.score) return b.score - a.score;
+    return a.time - b.time;
   });
 
   // Confetti trigger when podium renders
@@ -159,7 +177,10 @@ export default function Competition({ onBack }) {
               <div className="comp-podium-col podium-2">
                 <span className="comp-podium-avatar">{silver.avatar}</span>
                 <span className="comp-podium-name">{silver.name}</span>
-                <span className="comp-podium-stat">{formatTime(silver.time)}</span>
+                <span className="comp-podium-stat">{silver.score} Pts</span>
+                <span className="comp-podium-stat" style={{ opacity: 0.8, fontSize: "0.65rem" }}>
+                  {formatTime(silver.time)} ({silver.accuracy}%)
+                </span>
                 <span className="comp-podium-stat" style={{ opacity: 0.8 }}>🥈 2nd</span>
               </div>
             )}
@@ -169,7 +190,10 @@ export default function Competition({ onBack }) {
               <div className="comp-podium-col podium-1">
                 <span className="comp-podium-avatar">{gold.avatar}</span>
                 <span className="comp-podium-name">{gold.name}</span>
-                <span className="comp-podium-stat">{formatTime(gold.time)}</span>
+                <span className="comp-podium-stat" style={{ fontWeight: "bold" }}>{gold.score} Pts</span>
+                <span className="comp-podium-stat" style={{ opacity: 0.8, fontSize: "0.65rem" }}>
+                  {formatTime(gold.time)} ({gold.accuracy}%)
+                </span>
                 <span className="comp-podium-stat" style={{ opacity: 0.8 }}>👑 Winner</span>
               </div>
             )}
@@ -179,7 +203,10 @@ export default function Competition({ onBack }) {
               <div className="comp-podium-col podium-3">
                 <span className="comp-podium-avatar">{bronze.avatar}</span>
                 <span className="comp-podium-name">{bronze.name}</span>
-                <span className="comp-podium-stat">{formatTime(bronze.time)}</span>
+                <span className="comp-podium-stat">{bronze.score} Pts</span>
+                <span className="comp-podium-stat" style={{ opacity: 0.8, fontSize: "0.65rem" }}>
+                  {formatTime(bronze.time)} ({bronze.accuracy}%)
+                </span>
                 <span className="comp-podium-stat" style={{ opacity: 0.8 }}>🥉 3rd</span>
               </div>
             )}
@@ -196,8 +223,10 @@ export default function Competition({ onBack }) {
                   <span>{r.avatar} {r.name}</span>
                 </div>
                 <div className="comp-winner-row-right">
+                  <span>Score: <strong className="comp-winner-val" style={{ color: "var(--accent-gold-dark)" }}>{r.score} Pts</strong></span>
                   <span>Time: <strong className="comp-winner-val">{formatTime(r.time)}</strong></span>
                   <span>Accuracy: <strong className="comp-winner-val">{r.accuracy}%</strong></span>
+                  <span>Streak: <strong className="comp-winner-val">{r.streak}🔥</strong></span>
                 </div>
               </div>
             ))}

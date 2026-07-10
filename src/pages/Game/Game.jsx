@@ -18,6 +18,7 @@ const initialGameState = {
   typedIndex: 0,
   wrongFlash: false,
   streak: 0,
+  bestStreak: 0,
   correctCount: 0,
   totalAttempts: 0,
   plusFloats: [],
@@ -27,9 +28,11 @@ const initialGameState = {
 function gameReducer(state, action) {
   switch (action.type) {
     case "CORRECT_KEY":
+      const nextStreak = state.streak + 1;
       return {
         ...state,
-        streak: state.streak + 1,
+        streak: nextStreak,
+        bestStreak: Math.max(state.bestStreak, nextStreak),
         correctCount: state.correctCount + 1,
         totalAttempts: state.totalAttempts + 1,
       };
@@ -128,13 +131,13 @@ export default function Game({ stageIndex, onBackToStages, onStageFinished, cust
       60 - remaining,
       finalAccuracy,
       gameState.posIndex,
-      gameState.streak
+      gameState.bestStreak
     );
     onStageFinished({
       time: 60 - remaining,
       accuracy: finalAccuracy,
       wordsTyped: gameState.posIndex,
-      streak: gameState.streak,
+      streak: gameState.bestStreak,
     });
   }, [gameState, recordStageComplete, stage.id, onStageFinished]);
 
@@ -157,13 +160,13 @@ export default function Game({ stageIndex, onBackToStages, onStageFinished, cust
         seconds,
         finalAccuracy,
         queue.length,
-        gameState.streak
+        gameState.bestStreak
       );
       onStageFinished({
         time: seconds,
         accuracy: finalAccuracy,
         wordsTyped: queue.length,
-        streak: gameState.streak,
+        streak: gameState.bestStreak,
       });
     }
   }, [isComplete, isTimed, gameState, seconds, recordStageComplete, stage.id, onStageFinished, queue.length]);
