@@ -1,0 +1,125 @@
+.leaderboard-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.leaderboard-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.leaderboard-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.leaderboard-tab-btn {
+  background: var(--surface-glass);
+  color: var(--text-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.leaderboard-tab-btn.active {
+  background: var(--text-primary);
+  color: var(--surface);
+}
+
+.leaderboard-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.leaderboard-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-weight: 700;
+  height: 200px;
+  text-align: center;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-md);
+  background: var(--surface-glass);
+  border: 1px solid var(--input-border);
+  font-weight: 700;
+  transition: transform var(--transition-fast);
+}
+
+.leaderboard-row-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leaderboard-rank {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  width: 24px;
+}
+
+.leaderboard-rank.rank-1 {
+  color: var(--accent-gold-dark);
+}
+
+.leaderboard-name {
+  color: var(--text-primary);
+}
+
+.leaderboard-row-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.leaderboard-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.leaderboard-stat-val {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--text-primary);
+}

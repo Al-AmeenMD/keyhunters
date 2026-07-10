@@ -1,0 +1,35 @@
+.progress-container {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-track {
+  fill: none;
+  stroke: var(--progress-track);
+  stroke-width: 5;
+}
+
+.progress-ring-fill {
+  fill: none;
+  stroke: var(--accent-gold);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.4s ease, stroke 0.3s ease;
+}
+
+.progress-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-primary);
+}

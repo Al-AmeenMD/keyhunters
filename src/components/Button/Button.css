@@ -1,0 +1,95 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 16px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.95) translateY(2px);
+}
+
+.btn:hover {
+  filter: brightness(1.06);
+}
+
+/* Sizes */
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 18px;
+}
+
+.btn-md {
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.btn-sm {
+  padding: 7px 14px;
+  font-size: 13px;
+}
+
+/* Variants */
+.btn-gold {
+  background: var(--accent-gold);
+  color: #5A3E00;
+  box-shadow: 0 4px 0 var(--accent-gold-dark);
+}
+
+.btn-gold:active {
+  box-shadow: 0 2px 0 var(--accent-gold-dark);
+}
+
+.btn-success {
+  background: var(--accent-success);
+  color: #0B4F49;
+  box-shadow: 0 4px 0 var(--accent-success-dark);
+}
+
+.btn-success:active {
+  box-shadow: 0 2px 0 var(--accent-success-dark);
+}
+
+.btn-error {
+  background: var(--accent-error);
+  color: #fff;
+  box-shadow: 0 4px 0 var(--accent-error-dark);
+}
+
+.btn-muted {
+  background: var(--surface-glass);
+  color: var(--text-secondary);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.06);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: none;
+  padding: 8px 12px;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+}
+
+/* Ripple effect */
+.btn .btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  animation: ripple 0.5s ease-out forwards;
+  pointer-events: none;
+}

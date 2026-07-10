@@ -1,0 +1,204 @@
+.parent-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.parent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.parent-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.parent-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.parent-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--input-border);
+  padding-bottom: 20px;
+}
+
+.parent-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.parent-section-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.parent-settings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.parent-setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.parent-setting-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Toggle Switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--progress-track);
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-success);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Spelling List items */
+.spelling-list-form {
+  display: flex;
+  gap: 10px;
+}
+
+.spelling-input {
+  flex-grow: 1;
+  padding: 10px 14px;
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--input-border);
+  background: var(--surface);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.spelling-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.spelling-tag {
+  background: var(--key-left-bg);
+  color: var(--key-left-color);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.spelling-tag-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent-error);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Parental Gate Overlay */
+.gate-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gate-card {
+  width: 100%;
+  max-width: 340px;
+  padding: 30px;
+  text-align: center;
+}
+
+.gate-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.gate-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.gate-question {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}

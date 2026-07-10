@@ -1,0 +1,95 @@
+.game-container {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.game-title-section {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.game-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.game-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.game-card-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 24px;
+}
+
+.game-keyboard-wrapper {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+/* Pause Overlay */
+.pause-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pause-card {
+  width: 100%;
+  max-width: 340px;
+  padding: 34px;
+  text-align: center;
+  background: var(--surface);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--card-shadow-lg);
+}
+
+.pause-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.pause-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Speed / Multiplier indicator */
+.combo-multiplier-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-gold));
+  color: white;
+  border-radius: var(--border-radius-md);
+  padding: 4px 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 8px;
+}
